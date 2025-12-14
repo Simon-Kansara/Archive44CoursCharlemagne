@@ -279,27 +279,26 @@ a, a:visited, a:hover, a:active {
     font-size: 1.8rem;
   }
 
-  /* Simplify animations on mobile */
+  /* Buildings - pleine hauteur avec animation */
   #moving_buildings {
     position: fixed;
-    top: 15vh;
-    left: 0;
+    top: 0;
     right: 0;
-    width: 100%;
-    height: auto;
+    width: auto;
+    height: 100vh;
   }
 
   #moving_buildings.scrolled-down {
-    transform: translateX(0);
+    transform: translateX(20vw);
   }
 
   #moving_buildings.scrolled-up {
-    transform: translateX(0);
+    transform: translateX(50vw);
   }
 
   #moving_buildings img {
-    width: 100%;
-    height: auto;
+    width: auto;
+    height: 100%;
   }
 
   /* Venez image */
@@ -363,12 +362,6 @@ a, a:visited, a:hover, a:active {
 
   .menu {
     font-size: 2rem;
-  }
-
-  #moving_buildings {
-    width: 100%;
-    left: 0;
-    right: 0;
   }
 
   #venez {
