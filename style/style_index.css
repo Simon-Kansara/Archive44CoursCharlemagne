@@ -282,18 +282,19 @@ a, a:visited, a:hover, a:active {
   /* Simplify animations on mobile */
   #moving_buildings {
     position: fixed;
-    top: 20vh;
-    right: -10vw;
-    width: 50vw;
+    top: 15vh;
+    left: 0;
+    right: 0;
+    width: 100%;
     height: auto;
   }
 
   #moving_buildings.scrolled-down {
-    transform: translateX(-5vw);
+    transform: translateX(0);
   }
 
   #moving_buildings.scrolled-up {
-    transform: translateX(15vw);
+    transform: translateX(0);
   }
 
   #moving_buildings img {
@@ -365,8 +366,9 @@ a, a:visited, a:hover, a:active {
   }
 
   #moving_buildings {
-    width: 60vw;
-    right: -15vw;
+    width: 100%;
+    left: 0;
+    right: 0;
   }
 
   #venez {
