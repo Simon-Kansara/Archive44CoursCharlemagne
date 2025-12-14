@@ -42,11 +42,6 @@ input, textarea, select {
     user-select: none;
   }
 
-  /* Améliorer les performances des animations */
-  * {
-    -webkit-transform: translateZ(0);
-    transform: translateZ(0);
-  }
 
   /* Masquer les barres de défilement sur mobile */
   body::-webkit-scrollbar {
