@@ -1,0 +1,90 @@
+/* ------------------------------------ */
+/* 📱 GLOBAL MOBILE IMPROVEMENTS        */
+/* ------------------------------------ */
+
+/* Améliorer les performances de défilement sur mobile */
+* {
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Désactiver le zoom sur les éléments de formulaire */
+input, textarea, select {
+  font-size: 16px; /* Empêche le zoom automatique sur iOS */
+}
+
+/* Améliorer les interactions tactiles */
+@media (max-width: 768px) {
+  /* Zones de toucher plus grandes pour les liens et boutons */
+  a, button, [role="button"], .clickable {
+    min-height: 44px;
+    min-width: 44px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* Supprimer les effets de survol sur mobile */
+  a:hover, button:hover, [role="button"]:hover {
+    opacity: 1;
+  }
+
+  /* Améliorer la lisibilité des textes */
+  body {
+    -webkit-text-size-adjust: none;
+    text-size-adjust: none;
+  }
+
+  /* Désactiver la sélection de texte pour les éléments UI */
+  .header, .menu, .logo {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+
+  /* Améliorer les performances des animations */
+  * {
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+  }
+
+  /* Masquer les barres de défilement sur mobile */
+  body::-webkit-scrollbar {
+    display: none;
+  }
+
+  body {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
+
+/* Styles spécifiques pour les petits écrans */
+@media (max-width: 480px) {
+  /* Réduire la taille des polices pour éviter les débordements */
+  body {
+    font-size: 14px;
+  }
+
+  /* Optimiser l'espacement pour les petits écrans */
+  .container, .boxes, .header {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+}
+
+/* Optimisations pour les écrans tactiles */
+@media (hover: none) and (pointer: coarse) {
+  /* Désactiver toutes les animations complexes sur les appareils tactiles */
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  /* Améliorer les états de focus pour la navigation au clavier */
+  a:focus, button:focus, [tabindex]:focus {
+    outline: 2px solid #0071DD;
+    outline-offset: 2px;
+  }
+}

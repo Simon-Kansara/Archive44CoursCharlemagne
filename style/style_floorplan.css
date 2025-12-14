@@ -1,0 +1,448 @@
+:root {
+  --beige: #F7F7EB;
+  --blue: #0071DD;
+  --khaki: #B6B191;
+  --rose: #F4A79F;
+  --brown: #AF6F23;
+  --green: #6BD696;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+@font-face {
+  font-family: "Antikor Light Italic";
+  src: url("./fonts/AntikorMonoLightItalic.woff2") format("woff2");
+  font-display: swap;
+}
+@font-face {
+  font-family: "Antikor Light";
+  src: url("./fonts/AntikorMonoLight.woff2") format("woff2");
+  font-display: swap;
+}
+@font-face {
+  font-family: "Antikor Regular";
+  src: url("./fonts/AntikorMonoRegular.woff2") format("woff2");
+  font-display: swap;
+}
+@font-face {
+  font-family: "Antikor Bold";
+  src: url("./fonts/AntikorMonoBold.woff2") format("woff2");
+  font-display: swap;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+a:visited, a:hover, a:active {
+  color: inherit;
+  text-decoration: none;
+}
+
+html{
+  scroll-behavior: smooth;
+}
+body {
+  font-size: 16px;
+  margin: 0;
+  padding: 0;
+  color: black;
+  overflow-x: hidden;
+
+  width: 100dvw;
+  height: 100dvh;
+
+  display: flex;
+  flex-direction: column;
+
+  opacity: 0;
+  transition: opacity 3s ease;
+  overflow: hidden;
+}
+#cursor-gif {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 5vw; /* GIF 크기 */
+  pointer-events: none; /* 클릭 안 막게 설정 */
+  z-index: 9999;
+  transform: translate(20%, 20%);
+}
+#cursor-gif img{
+  width: 100%;
+}
+/* --------------------------------------------------------------------------------------------------------- */
+.header {
+  width: 100%;
+  height: 7vh;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  position:fixed;
+  z-index: 10; /* 다른 요소 위로 */
+  transition: transform 0.5s ease;
+}
+.logo {
+  width: auto;
+  height: 30px;
+  padding: 0;
+  display: flex;
+}
+.logo img{
+  height: 100%;
+}
+.menu {
+  display: flex;
+  width: 5%;
+  height: 100%;
+  justify-content: flex-end;
+}
+/* --------------------------------------------------------------------------------------------------------- */
+.container{
+  padding-top: 7vh;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+}
+.background{
+  position:fixed;
+  display: flex;
+  justify-content: center;
+  width: 100vw;
+  height: 100vh;
+}
+.background img {
+  width: 100%;
+  height: 99%;
+  object-fit: fill;
+}
+#panneau{
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  width: 3vw;
+}
+/* --------------------------------------------------------------------------------------------------------- */
+.container01{
+  display: flex;
+  width: 100%;
+  height: 100vh;
+}
+/* --------------------------------------------------------------------------------------------------------- */
+.container02{
+  position: relative; /* 기준점 설정 */
+  width: 100%;
+  min-height: 100dvh;
+}
+#floorplan{
+  position: absolute;
+  top: 12vh;
+  left: 20vw;
+  width: 100%;
+  min-height: 100dvh;
+}
+#floorplan img{
+  width: 60%;
+}
+.boxes {
+  display: grid;
+  width: 60%;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 0; /* 간격 없이 딱 붙게 */
+
+  position: absolute;
+  top: 12vh;
+  left: 20vw;
+}
+.boxes > div{
+  position: relative;
+  height: 100%;
+}
+.boxes > div:hover .tone {
+  /* display: block; */
+  opacity: 1;
+  mix-blend-mode: darken;
+}
+.tone{
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: opacity 1s ease;
+  
+}
+.line{
+  position: absolute;
+  z-index: 9;
+  opacity: 0;
+  transform: translateY(-20px);
+  transition: opacity 1s ease, transform 0.8s ease;
+}
+.line01{
+  top: 17vh;
+  left: -10vw;
+}
+.line02, .line03{
+  top: 21vh;
+  right: -10vw;
+}
+.description-box1, .description-box2, .description-box4{
+  position: absolute;
+  width: 15vw;
+  height: 30vh;
+  color: var(--blue);
+  z-index: 10;
+  padding: 1rem;
+
+  opacity: 0;
+  transform: translateY(-20px);
+  transition: opacity 1s ease, transform 0.8s ease;
+}
+.description-box1{
+  top: 0;
+  left: -17vw;
+}
+.description-box2{
+  top: 0;
+  right: -17vw;
+}
+.description-box4{
+  top: 0;
+  right: -17vw;
+}
+.boxes > div:hover .description-box1,
+.boxes > div:hover .description-box2,
+.boxes > div:hover .description-box4 {
+  opacity: 1;
+  transform: translateY(0);
+}
+.boxes > div:hover .line{
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* .description-kr{
+  font-family: 'Spoqa Regular', 'sans-serif';
+  font-size: 0.9rem;
+} */
+.description-fr{
+  font-family: "Antikor Regular", sans-serif;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  padding: 1.5rem;
+  border-radius: 15px;
+  background-color: white;
+}
+.description-fr > p:first-child{
+  font-size: 1.1rem;
+  font-family: "Antikor Bold", 'sans-serif';
+}
+/* .description-kr > p:first-child {
+  color: var(--khaki);
+  font-family: 'Spoqa Bold', 'sans-serif';
+  } */
+
+#band {
+  position: absolute; 
+  bottom: 0;
+  left: 0;
+  width: 100vw;
+  height: 2rem;
+  background-color: white;
+  overflow: hidden; /* 벗어난 텍스트 숨기기 */
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+.scrolling-text {
+  white-space: nowrap;
+  margin: 5px;
+  animation: scrollLoop 15s linear infinite;
+}
+.scrolling-text .fr {
+  font-family: "Antikor Light Italic", sans-serif;
+  color: var(--blue);
+  font-size: 0.9rem;
+  margin-right: 1rem;
+  text-transform: uppercase;
+}
+@keyframes scrollLoop {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-100vh);
+  }
+}
+
+/* ------------------------------------ */
+/* 📱 MOBILE RESPONSIVENESS             */
+/* ------------------------------------ */
+@media (max-width: 768px) {
+  /* Hide cursor gif on mobile */
+  #cursor-gif {
+    display: none;
+  }
+
+  /* Header adaptations */
+  .header {
+    height: 8vh;
+    padding: 15px;
+  }
+
+  .logo {
+    height: 25px;
+  }
+
+  /* Container adaptations */
+  .container01 {
+    flex-direction: column;
+    padding-top: 8vh;
+  }
+
+  /* Background image */
+  .background img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  /* Floorplan layout - change from grid to vertical stack */
+  #floorplan {
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    padding: 20px 0;
+  }
+
+  #floorplan img {
+    width: 90%;
+    max-width: 400px;
+  }
+
+  .boxes {
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 20px;
+  }
+
+  .boxes > div {
+    width: 100%;
+    min-height: 80px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 10px;
+    padding: 15px;
+    position: relative;
+  }
+
+  .tone {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+  }
+
+  /* Hide connecting lines on mobile */
+  .line {
+    display: none;
+  }
+
+  /* Reorganize description boxes */
+  .description-box1,
+  .description-box2,
+  .description-box4 {
+    position: relative;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: auto;
+    opacity: 1;
+    transform: none;
+    transition: none;
+    padding: 0;
+    margin-top: 10px;
+  }
+
+  .description-fr {
+    font-size: 0.8rem;
+    padding: 15px;
+    text-align: center;
+  }
+
+  .description-fr > p:first-child {
+    font-size: 1rem;
+    margin-bottom: 10px;
+  }
+
+  /* Remove hover effects - use tap instead */
+  .boxes > div:hover .tone,
+  .boxes > div:hover .description-box1,
+  .boxes > div:hover .description-box2,
+  .boxes > div:hover .description-box4,
+  .boxes > div:hover .line {
+    /* Reset hover effects */
+  }
+
+  /* Add touch-friendly active states */
+  .boxes > div:active .tone {
+    opacity: 0.7;
+  }
+
+  /* Bottom band */
+  #band {
+    height: 3rem;
+  }
+
+  .scrolling-text .fr {
+    font-size: 0.8rem;
+  }
+}
+
+/* Extra small screens */
+@media (max-width: 480px) {
+  .boxes {
+    padding: 10px;
+    gap: 15px;
+  }
+
+  .boxes > div {
+    padding: 10px;
+  }
+
+  #floorplan img {
+    width: 95%;
+  }
+
+  .description-fr {
+    font-size: 0.7rem;
+    padding: 10px;
+  }
+
+  .description-fr > p:first-child {
+    font-size: 0.9rem;
+  }
+
+  .scrolling-text .fr {
+    font-size: 0.7rem;
+  }
+
+  #band {
+    height: 2.5rem;
+  }
+}
