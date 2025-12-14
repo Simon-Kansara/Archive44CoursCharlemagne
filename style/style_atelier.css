@@ -67,8 +67,8 @@ body {
   color: var(--blue);
   overflow-x: hidden;
   overflow-y: auto;
-  width: 100vw;  
-  height: 100vh; 
+  width: 100%;
+  height: 100vh;
 
   opacity: 0;
   transition: opacity 3s ease;
@@ -81,7 +81,7 @@ body::-webkit-scrollbar {
 .header {
   position: fixed;
   top:0;
-  width: 100vw;
+  width: 100%;
   height: 7vh;
   padding: 20px;
   display: flex;
@@ -276,7 +276,7 @@ p{
 
   /* Container adaptations */
   .container {
-    width: 100vw;
+    width: 100%;
     height: 92vh;
     top: 8vh;
   }
@@ -284,7 +284,7 @@ p{
   #photo_atelier {
     top: 8vh;
     height: 92vh;
-    width: 100vw;
+    width: 100%;
   }
 
   #photo_atelier img {
@@ -300,11 +300,14 @@ p{
     padding: 0.8rem 1.5rem;
     background: rgba(255, 255, 255, 0.9);
     border-radius: 8px;
+    min-height: 44px;
+    min-width: 44px;
   }
 
   /* Adapt interactive elements for mobile */
   .button {
-    transform: scale(1.2);
+    min-width: 44px;
+    min-height: 44px;
   }
 
   .reflex {
@@ -324,18 +327,20 @@ p{
     right: 5vw;
   }
 
-  /* Adapt info boxes for mobile */
-  .box_reflex {
-    width: 60vw;
-    font-size: 0.8rem;
-    transform: translate(-50%, -150%);
-  }
-
+  /* Boîtes d'info en modal sur mobile */
+  .box_reflex,
   .box_radio,
   .box_tv {
-    width: 70vw;
-    font-size: 0.8rem;
-    transform: translate(-70%, -120%);
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90vw;
+    max-width: 400px;
+    max-height: 80vh;
+    overflow-y: auto;
+    z-index: 1000;
+    font-size: 0.9rem;
   }
 
   .bubble {

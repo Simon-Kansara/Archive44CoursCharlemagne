@@ -19,7 +19,8 @@ body {
   color: black;
   background-color: #DDEFE2;
   overflow-y: auto;
-  width: 100dvw;
+  overflow-x: hidden;
+  width: 100%;
   height: 100dvh;
   opacity: 0;
   transition: opacity 3s ease;
@@ -248,7 +249,8 @@ a, a:visited, a:hover, a:active {
 @media (max-width: 768px) {
   /* Header adaptations */
   .header {
-    height: 10vh;
+    height: auto;
+    min-height: 10vh;
     padding: 15px;
     flex-direction: column;
     align-items: flex-start;
@@ -256,34 +258,34 @@ a, a:visited, a:hover, a:active {
 
   .text {
     flex-direction: column;
-    gap: 10px;
+    gap: 5px;
     margin-top: 10px;
   }
 
   .logo, .phrase01, .phrase02, .phrase03 {
-    width: 80vw;
+    width: 100%;
     margin-right: 0;
     margin-bottom: 5px;
   }
 
   .francais {
-    font-size: 3vw;
+    font-size: clamp(12px, 3vw, 16px);
   }
 
   .menu {
     position: absolute;
     top: 15px;
     right: 15px;
-    font-size: 1.5rem;
+    font-size: 1.8rem;
   }
 
   /* Simplify animations on mobile */
   #moving_buildings {
     position: fixed;
-    top: 15vh;
+    top: 20vh;
     right: -10vw;
-    width: 60vw;
-    transform: translateX(0);
+    width: 50vw;
+    height: auto;
   }
 
   #moving_buildings.scrolled-down {
@@ -301,9 +303,9 @@ a, a:visited, a:hover, a:active {
 
   /* Venez image */
   #venez {
-    left: -20vw;
-    top: 25vh;
-    width: 90vw;
+    left: -10vw;
+    top: 30vh;
+    width: 80vw;
   }
 
   #venez.scrolled-down {
@@ -320,7 +322,7 @@ a, a:visited, a:hover, a:active {
   }
 
   .tree {
-    width: 15vw;
+    width: 12vw;
     left: 5vw;
   }
 
@@ -330,43 +332,57 @@ a, a:visited, a:hover, a:active {
 
   /* Student image */
   #etudiant {
-    width: 12vw;
-    left: 40vw;
+    width: 10vw;
+    left: 42vw;
     bottom: 5vh;
   }
 
   /* Mouse indicator */
   #mouse {
     left: 45vw;
-    top: 60vh;
+    top: 55vh;
   }
 
   #mouse img {
     width: 8vw;
   }
+}
 
-  /* Disable complex scroll animations on small screens */
-  @media (max-width: 480px) {
-    #moving_buildings,
-    #venez,
-    .tree {
-      transform: none !important;
-      transition: none !important;
-    }
+/* ------------------------------------ */
+/* 📱 SMALL MOBILE (480px)              */
+/* ------------------------------------ */
+@media (max-width: 480px) {
+  .header {
+    padding: 10px;
+  }
 
-    .phrase-animate-in,
-    .phrase-animate-out {
-      animation: none !important;
-      opacity: 1 !important;
-      transform: none !important;
-    }
+  .francais {
+    font-size: clamp(11px, 4vw, 14px);
+  }
 
-    .francais {
-      font-size: 4vw;
-    }
+  .menu {
+    font-size: 2rem;
+  }
 
-    #mouse img {
-      width: 10vw;
-    }
+  #moving_buildings {
+    width: 60vw;
+    right: -15vw;
+  }
+
+  #venez {
+    width: 90vw;
+    left: -15vw;
+  }
+
+  .tree {
+    width: 15vw;
+  }
+
+  #etudiant {
+    width: 12vw;
+  }
+
+  #mouse img {
+    width: 10vw;
   }
 }

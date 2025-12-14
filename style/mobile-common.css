@@ -15,7 +15,7 @@ input, textarea, select {
 /* Améliorer les interactions tactiles */
 @media (max-width: 768px) {
   /* Zones de toucher plus grandes pour les liens et boutons */
-  a, button, [role="button"], .clickable {
+  a, button, [role="button"], .clickable, .menu {
     min-height: 44px;
     min-width: 44px;
     display: inline-flex;
@@ -75,11 +75,20 @@ input, textarea, select {
 
 /* Optimisations pour les écrans tactiles */
 @media (hover: none) and (pointer: coarse) {
-  /* Désactiver toutes les animations complexes sur les appareils tactiles */
-  *, *::before, *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
+  /* Optimiser les animations pour mobile sans les désactiver */
+  * {
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+  }
+
+  /* Éléments animés - accélération matérielle */
+  .tree, #venez, #moving_buildings, .floating-img, .phrase01, .phrase02, .phrase03 {
+    will-change: transform;
+  }
+
+  /* Cacher uniquement les animations très coûteuses (notes tombantes) */
+  .note {
+    display: none;
   }
 
   /* Améliorer les états de focus pour la navigation au clavier */
